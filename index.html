@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="lake-blue">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liu Jinjing - Today</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 主题切换按钮 -->
+    <div class="theme-switcher">
+        <button class="theme-btn active" data-theme="lake-blue" title="湖水蓝">💧</button>
+        <button class="theme-btn" data-theme="mono" title="黑白灰">◐</button>
+        <button class="theme-btn" data-theme="macaron" title="马卡龙">🎨</button>
+    </div>
+
+    <!-- 水波纹背景容器 -->
+    <div class="water-background">
+        <canvas id="waterCanvas"></canvas>
+    </div>
+
+    <!-- 鼠标涟漪效果容器 -->
+    <div class="ripple-container" id="rippleContainer"></div>
+
+    <!-- 主要内容 -->
+    <main class="content">
+        <div class="main-title">
+            <h1 class="name-en">Liu Jinjing</h1>
+            <div class="divider"></div>
+        </div>
+
+        <p class="subtitle">Today</p>
+
+        <div class="peak-end-section">
+            <span class="peak-end-label">Peak-End Rule</span>
+        </div>
+
+        <blockquote class="quote">
+            <span class="quote-line">In case I don't see you.</span>
+            <span class="quote-line">Good morning, good afternoon</span>
+            <span class="quote-line">and good night.</span>
+        </blockquote>
+    </main>
+
+    <!-- 底部装饰线 -->
+    <div class="bottom-accent"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

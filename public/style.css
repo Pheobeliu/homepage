@@ -1,0 +1,561 @@
+/* ===================================
+   高级简约艺术风格 - 多主题支持
+   =================================== */
+
+/* ===================================
+   主题配色定义
+   =================================== */
+
+/* 主题 1：午夜蓝 (Midnight Blue) - 沉稳深邃 */
+[data-theme="midnight-blue"] {
+    --bg-gradient-start: #0f1729;
+    --bg-gradient-middle: #1a2744;
+    --bg-gradient-end: #243654;
+    --text-primary: rgba(255, 255, 255, 0.95);
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --border-light: rgba(255, 255, 255, 0.2);
+    --border-hover: rgba(255, 255, 255, 0.4);
+    --wave-color: 255, 255, 255;
+}
+
+/* 主题 2：深海青松 (Deep Teal) - 清冷高级 */
+[data-theme="deep-teal"] {
+    --bg-gradient-start: #0d2829;
+    --bg-gradient-middle: #164244;
+    --bg-gradient-end: #1f5c5e;
+    --text-primary: rgba(240, 253, 250, 0.95);
+    --text-secondary: rgba(240, 253, 250, 0.7);
+    --border-light: rgba(240, 253, 250, 0.2);
+    --border-hover: rgba(240, 253, 250, 0.4);
+    --wave-color: 240, 253, 250;
+}
+
+/* 主题 3：暖炭灰 (Charcoal Warm) - 极简克制 */
+[data-theme="charcoal-warm"] {
+    --bg-gradient-start: #1c1c1e;
+    --bg-gradient-middle: #2c2c2e;
+    --bg-gradient-end: #3a3a3c;
+    --text-primary: rgba(255, 255, 255, 0.92);
+    --text-secondary: rgba(255, 255, 255, 0.6);
+    --border-light: rgba(255, 255, 255, 0.15);
+    --border-hover: rgba(255, 255, 255, 0.35);
+    --wave-color: 255, 255, 255;
+}
+
+/* 主题 4：森林雾霭 (Forest Mist) - 自然静谧 */
+[data-theme="forest-mist"] {
+    --bg-gradient-start: #1a1f1c;
+    --bg-gradient-middle: #263029;
+    --bg-gradient-end: #334037;
+    --text-primary: rgba(234, 244, 235, 0.93);
+    --text-secondary: rgba(234, 244, 235, 0.68);
+    --border-light: rgba(234, 244, 235, 0.18);
+    --border-hover: rgba(234, 244, 235, 0.38);
+    --wave-color: 234, 244, 235;
+}
+
+/* 主题 5：暮光紫 (Dusk Purple) - 艺术浪漫 */
+[data-theme="dusk-purple"] {
+    --bg-gradient-start: #1a1625;
+    --bg-gradient-middle: #2d2438;
+    --bg-gradient-end: #40334d;
+    --text-primary: rgba(245, 240, 250, 0.94);
+    --text-secondary: rgba(245, 240, 250, 0.68);
+    --border-light: rgba(245, 240, 250, 0.18);
+    --border-hover: rgba(245, 240, 250, 0.38);
+    --wave-color: 245, 240, 250;
+}
+
+/* ===================================
+   浅色系 & 玛卡龙配色
+   =================================== */
+
+/* 主题 6：雾霾蓝玛卡龙 (Misty Blue Macaron) */
+[data-theme="misty-blue-macaron"] {
+    --bg-gradient-start: #e4f0f5;
+    --bg-gradient-middle: #cde5ef;
+    --bg-gradient-end: #b8d8e6;
+    --text-primary: rgba(44, 62, 80, 0.9);
+    --text-secondary: rgba(52, 73, 94, 0.7);
+    --border-light: rgba(52, 152, 219, 0.25);
+    --border-hover: rgba(52, 152, 219, 0.45);
+    --wave-color: 52, 152, 219;
+}
+
+/* 主题 7：薄荷绿玛卡龙 (Mint Green Macaron) */
+[data-theme="mint-green-macaron"] {
+    --bg-gradient-start: #e8f6f3;
+    --bg-gradient-middle: #d1ebe5;
+    --bg-gradient-end: #b8dfd7;
+    --text-primary: rgba(30, 60, 54, 0.9);
+    --text-secondary: rgba(40, 80, 72, 0.7);
+    --border-light: rgba(46, 204, 113, 0.25);
+    --border-hover: rgba(46, 204, 113, 0.45);
+    --wave-color: 46, 204, 113;
+}
+
+/* 主题 8：樱花粉玛卡龙 (Sakura Pink Macaron) */
+[data-theme="sakura-pink-macaron"] {
+    --bg-gradient-start: #fdf2f4;
+    --bg-gradient-middle: #fbe5ea;
+    --bg-gradient-end: #f8d7df;
+    --text-primary: rgba(80, 50, 56, 0.88);
+    --text-secondary: rgba(100, 65, 72, 0.7);
+    --border-light: rgba(233, 99, 126, 0.25);
+    --border-hover: rgba(233, 99, 126, 0.45);
+    --wave-color: 233, 99, 126;
+}
+
+/* 主题 9：奶油杏玛卡龙 (Cream Apricot Macaron) */
+[data-theme="cream-apricot-macaron"] {
+    --bg-gradient-start: #fef9f0;
+    --bg-gradient-middle: #fdf0e1;
+    --bg-gradient-end: #fbe5cf;
+    --text-primary: rgba(70, 50, 30, 0.88);
+    --text-secondary: rgba(90, 65, 40, 0.7);
+    --border-light: rgba(230, 150, 80, 0.25);
+    --border-hover: rgba(230, 150, 80, 0.45);
+    --wave-color: 210, 130, 60;
+}
+
+/* 主题 10：薰衣草紫玛卡龙 (Lavender Purple Macaron) */
+[data-theme="lavender-purple-macaron"] {
+    --bg-gradient-start: #f4ecf7;
+    --bg-gradient-middle: #e8ddf0;
+    --bg-gradient-end: #dccfe6;
+    --text-primary: rgba(55, 40, 65, 0.88);
+    --text-secondary: rgba(75, 55, 90, 0.7);
+    --border-light: rgba(155, 105, 180, 0.25);
+    --border-hover: rgba(155, 105, 180, 0.45);
+    --wave-color: 155, 105, 180;
+}
+
+/* 主题 11：冰川蓝浅色 (Glacial Blue Light) - 清透高级 */
+[data-theme="glacial-blue-light"] {
+    --bg-gradient-start: #f0f7fa;
+    --bg-gradient-middle: #ddeef3;
+    --bg-gradient-end: #c8e4ec;
+    --text-primary: rgba(35, 60, 75, 0.9);
+    --text-secondary: rgba(45, 75, 95, 0.7);
+    --border-light: rgba(75, 145, 170, 0.25);
+    --border-hover: rgba(75, 145, 170, 0.45);
+    --wave-color: 75, 145, 170;
+}
+
+/* 默认主题 */
+:root {
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 32px;
+    --spacing-lg: 64px;
+    --spacing-xl: 96px;
+}
+
+/* 全局重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 200;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(
+        160deg,
+        var(--bg-gradient-start) 0%,
+        var(--bg-gradient-middle) 50%,
+        var(--bg-gradient-end) 100%
+    );
+    position: relative;
+    color: var(--text-primary);
+    transition: background 0.8s ease, color 0.8s ease;
+}
+
+/* ===================================
+   主题切换器（临时工具）
+   =================================== */
+.theme-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 12px 14px;
+    max-width: 280px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+}
+
+/* 浅色主题下的切换器样式调整 */
+[data-theme^="mint"],
+[data-theme^="sakura"],
+[data-theme^="cream"],
+[data-theme^="lavender"],
+[data-theme^="misty"],
+[data-theme^="glacial"] .theme-switcher {
+    background: rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.theme-switcher button {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-switcher button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+}
+
+.theme-switcher button.active {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--text-primary);
+    color: var(--text-primary);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.12);
+}
+
+/* ===================================
+   水波纹背景
+   =================================== */
+.water-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.35;
+}
+
+#waterCanvas {
+    width: 100%;
+    height: 100%;
+}
+
+/* ===================================
+   鼠标涟漪效果
+   =================================== */
+.ripple-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(var(--wave-color), 0.12) 0%,
+        rgba(var(--wave-color), 0.04) 50%,
+        transparent 70%
+    );
+    transform: translate(-50%, -50%) scale(0);
+    animation: rippleEffect 3s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes rippleEffect {
+    to {
+        transform: translate(-50%, -50%) scale(5);
+        opacity: 0;
+    }
+}
+
+/* ===================================
+   主要内容区域
+   =================================== */
+.content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+/* ===================================
+   主标题：Liu jinjing
+   =================================== */
+.name-section {
+    margin-bottom: var(--spacing-lg);
+    animation: fadeInDown 2s ease-out;
+}
+
+.name {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: var(--text-primary);
+    line-height: 1.1;
+    text-transform: lowercase;
+    transition: color 0.8s ease;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===================================
+   分隔线
+   =================================== */
+.divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--border-light),
+        transparent
+    );
+    margin-bottom: var(--spacing-md);
+    animation: expandWidth 1.5s ease-out 0.5s both;
+    transition: background 0.8s ease;
+}
+
+@keyframes expandWidth {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 60px;
+        opacity: 1;
+    }
+}
+
+/* ===================================
+   Today
+   =================================== */
+.today {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-weight: 200;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+    animation: fadeIn 2s ease-out 0.8s both;
+    transition: color 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ===================================
+   Peak-End Rule
+   =================================== */
+.peak-end-section {
+    margin-bottom: var(--spacing-xl);
+    animation: fadeIn 2s ease-out 1.2s both;
+}
+
+.peak-end-label {
+    font-family: var(--font-body);
+    font-size: clamp(0.85rem, 2vw, 1.1rem);
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    color: var(--text-secondary);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border: 1px solid var(--border-light);
+    border-radius: 2px;
+    display: inline-block;
+    transition: all 0.6s ease;
+}
+
+.peak-end-label:hover {
+    color: var(--text-primary);
+    border-color: var(--border-hover);
+    box-shadow: 0 0 20px rgba(var(--wave-color), 0.08);
+}
+
+/* ===================================
+   经典台词引用
+   =================================== */
+.quote {
+    max-width: 520px;
+    margin: 0 auto;
+    animation: fadeInUp 2s ease-out 1.6s both;
+}
+
+.quote-line {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+    transition: color 0.8s ease;
+}
+
+.quote-line:not(:last-child) {
+    margin-bottom: var(--spacing-xs);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===================================
+   装饰性圆环
+   =================================== */
+.decorative-circle {
+    position: absolute;
+    bottom: 12%;
+    width: 120px;
+    height: 120px;
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    animation: circlePulse 6s ease-in-out infinite;
+    pointer-events: none;
+    transition: border-color 0.8s ease;
+}
+
+.decorative-circle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+@keyframes circlePulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+/* ===================================
+   响应式设计
+   =================================== */
+@media (max-width: 768px) {
+    .name {
+        letter-spacing: 0.1em;
+    }
+
+    .today {
+        letter-spacing: 0.25em;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .peak-end-section {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .decorative-circle {
+        width: 80px;
+        height: 80px;
+        bottom: 10%;
+    }
+
+    .decorative-circle::before {
+        width: 55px;
+        height: 55px;
+    }
+
+    .theme-switcher {
+        top: 10px;
+        right: 10px;
+        padding: 8px 10px;
+        gap: 6px;
+    }
+
+    .theme-switcher button {
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .name {
+        letter-spacing: 0.05em;
+    }
+
+    .quote-line {
+        font-size: 1rem;
+    }
+}
+
+/* ===================================
+   微妙的光晕效果（中心）
+   =================================== */
+.content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(var(--wave-color), 0.02) 0%,
+        transparent 60%
+    );
+    pointer-events: none;
+    z-index: -1;
+}

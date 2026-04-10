@@ -1,0 +1,434 @@
+/* ============================================
+   全局变量 - 三套配色方案
+   ============================================ */
+
+/* 湖水蓝主题 */
+:root,
+[data-theme="lake-blue"] {
+    --bg-primary: #0a1628;
+    --bg-secondary: #1e3a5f;
+    --bg-gradient-start: #0a1628;
+    --bg-gradient-mid: #132d4a;
+    --bg-gradient-end: #0f2744;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-muted: rgba(255, 255, 255, 0.5);
+    --accent: #00d4ff;
+    --accent-secondary: #0099cc;
+    --accent-glow: rgba(0, 212, 255, 0.5);
+    --accent-soft: rgba(0, 212, 255, 0.15);
+    --wave-color-1: rgba(0, 212, 255, 0.12);
+    --wave-color-2: rgba(0, 153, 204, 0.08);
+    --ripple-color: rgba(0, 212, 255, 0.3);
+    --divider-gradient: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+/* 黑白灰主题 - 极简高级感 */
+[data-theme="mono"] {
+    --bg-primary: #000000;
+    --bg-secondary: #1a1a1a;
+    --bg-gradient-start: #000000;
+    --bg-gradient-mid: #0d0d0d;
+    --bg-gradient-end: #0a0a0a;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.6);
+    --text-muted: rgba(255, 255, 255, 0.35);
+    --accent: #ffffff;
+    --accent-secondary: #cccccc;
+    --accent-glow: rgba(255, 255, 255, 0.3);
+    --accent-soft: rgba(255, 255, 255, 0.08);
+    --wave-color-1: rgba(255, 255, 255, 0.06);
+    --wave-color-2: rgba(255, 255, 255, 0.04);
+    --ripple-color: rgba(255, 255, 255, 0.2);
+    --divider-gradient: linear-gradient(90deg, transparent, var(--text-secondary), transparent);
+}
+
+/* 马卡龙主题 - 柔和甜美 */
+[data-theme="macaron"] {
+    --bg-primary: #fef9f3;
+    --bg-secondary: #fff5eb;
+    --bg-gradient-start: #fef9f3;
+    --bg-gradient-mid: #fdf0e8;
+    --bg-gradient-end: #fbe8db;
+    --text-primary: #2d2d2d;
+    --text-secondary: rgba(45, 45, 45, 0.65);
+    --text-muted: rgba(45, 45, 45, 0.4);
+    --accent: #ffb8d0;
+    --accent-secondary: #b8e0ff;
+    --accent-glow: rgba(255, 184, 208, 0.4);
+    --accent-soft: rgba(255, 184, 208, 0.12);
+    --wave-color-1: rgba(255, 184, 208, 0.10);
+    --wave-color-2: rgba(184, 224, 255, 0.08);
+    --ripple-color: rgba(255, 184, 208, 0.25);
+    --divider-gradient: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+/* ============================================
+   基础样式
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'PingFang SC', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(160deg, var(--bg-gradient-start) 0%, var(--bg-gradient-mid) 50%, var(--bg-gradient-end) 100%);
+    position: relative;
+    transition: background 0.8s ease, color 0.8s ease;
+    color: var(--text-primary);
+}
+
+/* ============================================
+   主题切换器
+   ============================================ */
+
+.theme-switcher {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+    animation: fadeIn 1s ease-out 1s both;
+}
+
+.theme-btn {
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid var(--text-muted);
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--text-secondary);
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.theme-btn:hover {
+    transform: scale(1.15);
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.theme-btn.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-soft);
+    box-shadow: 0 0 15px var(--accent-glow), inset 0 0 10px var(--accent-soft);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   水波纹背景
+   ============================================ */
+
+.water-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+#waterCanvas {
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+}
+
+/* ============================================
+   鼠标涟漪容器
+   ============================================ */
+
+.ripple-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--ripple-color) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    animation: rippleEffect 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    pointer-events: none;
+}
+
+@keyframes rippleEffect {
+    to {
+        transform: translate(-50%, -50%) scale(5);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   主要内容区域
+   ============================================ */
+
+.content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+    gap: 24px;
+}
+
+/* ============================================
+   名字区域 - Liu Jinjing
+   ============================================ */
+
+.main-title {
+    animation: revealUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+}
+
+.name-en {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 200;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    line-height: 1.2;
+
+    /* 动态渐变文字效果 */
+    background: linear-gradient(
+        135deg,
+        var(--text-primary) 0%,
+        var(--accent) 50%,
+        var(--text-primary) 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    animation: textShine 4s ease-in-out infinite alternate;
+
+    /* 微妙发光 */
+    filter: drop-shadow(0 0 25px var(--accent-glow));
+}
+
+@keyframes textShine {
+    to { background-position: 200% center; }
+}
+
+@keyframes revealUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 分隔线 */
+.divider {
+    width: 60px;
+    height: 1px;
+    margin: 28px auto 0;
+    background: var(--divider-gradient);
+    animation: expandLine 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s both;
+}
+
+@keyframes expandLine {
+    from { width: 0; opacity: 0; }
+    to { width: 60px; opacity: 1; }
+}
+
+/* ============================================
+   副标题 - Today
+   ============================================ */
+
+.subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: 300;
+    letter-spacing: 0.6em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    animation: revealUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+}
+
+/* ============================================
+   Peak-End Rule 区域
+   ============================================ */
+
+.peak-end-section {
+    animation: revealUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s both;
+    padding: 14px 32px;
+    position: relative;
+}
+
+.peak-end-label {
+    font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--accent);
+    position: relative;
+    display: inline-block;
+}
+
+/* Peak-End Rule 装饰边框 */
+.peak-end-label::before,
+.peak-end-label::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 1px;
+    background: var(--divider-gradient);
+}
+
+.peak-end-label::before {
+    right: calc(100% + 16px);
+}
+
+.peak-end-label::after {
+    left: calc(100% + 16px);
+}
+
+/* ============================================
+   经典台词引用
+   ============================================ */
+
+.quote {
+    max-width: 520px;
+    animation: revealUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.1s both;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.quote-line {
+    font-size: clamp(0.9rem, 1.8vw, 1.15rem);
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-style: italic;
+}
+
+.quote-line:first-child {
+    color: var(--text-muted);
+}
+
+/* ============================================
+   底部装饰线
+   ============================================ */
+
+.bottom-accent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--divider-gradient);
+    animation: flowLine 6s ease-in-out infinite;
+    z-index: 15;
+}
+
+.bottom-accent::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 120px;
+    height: 1px;
+    background: var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow), 0 0 40px var(--accent-glow);
+    animation: lightDot 6s ease-in-out infinite;
+}
+
+@keyframes flowLine {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes lightDot {
+    0% { left: -120px; }
+    100% { left: calc(100% + 120px); }
+}
+
+/* ============================================
+   响应式设计
+   ============================================ */
+
+@media (max-width: 768px) {
+    .theme-switcher {
+        top: 18px;
+        right: 18px;
+        gap: 8px;
+    }
+
+    .theme-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+    }
+
+    .name-en {
+        letter-spacing: 0.15em;
+    }
+
+    .subtitle {
+        letter-spacing: 0.35em;
+    }
+
+    .peak-end-label::before,
+    .peak-end-label::after {
+        width: 18px;
+    }
+
+    .peak-end-label::before {
+        right: calc(100% + 10px);
+    }
+
+    .peak-end-label::after {
+        left: calc(100% + 10px);
+    }
+
+    .content {
+        gap: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .name-en {
+        letter-spacing: 0.08em;
+    }
+
+    .peak-end-section {
+        padding: 10px 20px;
+    }
+
+    .peak-end-label::before,
+    .peak-end-label::after {
+        display: none;
+    }
+}
