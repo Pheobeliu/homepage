@@ -1,17 +1,32 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="lake-blue">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liu Jinjing - Today</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
 </head>
-<body>
-    <!-- 主题切换按钮 -->
+<body data-theme="midnight-blue">
+    <!-- 主题切换器（临时使用，确认后删除） -->
     <div class="theme-switcher">
-        <button class="theme-btn active" data-theme="lake-blue" title="湖水蓝">💧</button>
-        <button class="theme-btn" data-theme="mono" title="黑白灰">◐</button>
-        <button class="theme-btn" data-theme="macaron" title="马卡龙">🎨</button>
+        <!-- 深色系 -->
+        <button onclick="setTheme('midnight-blue')" class="active" title="午夜蓝">🌌</button>
+        <button onclick="setTheme('deep-teal')" title="深海青松">🌊</button>
+        <button onclick="setTheme('charcoal-warm')" title="暖炭灰">🖤</button>
+        <button onclick="setTheme('forest-mist')" title="森林雾霭">🌲</button>
+        <button onclick="setTheme('dusk-purple')" title="暮光紫">🌆</button>
+
+        <!-- 分隔 -->
+        <div style="width: 100%; height: 1px; background: var(--border-light); margin: 4px 0;"></div>
+
+        <!-- 浅色系 & 玛卡龙 -->
+        <button onclick="setTheme('misty-blue-macaron')" title="雾霾蓝玛卡龙">💎</button>
+        <button onclick="setTheme('mint-green-macaron')" title="薄荷绿玛卡龙">🍃</button>
+        <button onclick="setTheme('sakura-pink-macaron')" title="樱花粉玛卡龙">🌸</button>
+        <button onclick="setTheme('cream-apricot-macaron')" title="奶油杏玛卡龙">🍰</button>
+        <button onclick="setTheme('lavender-purple-macaron')" title="薰衣草紫玛卡龙">💜</button>
+        <button onclick="setTheme('glacial-blue-light')" title="冰川蓝浅色">❄️</button>
     </div>
 
     <!-- 水波纹背景容器 -->
@@ -24,26 +39,32 @@
 
     <!-- 主要内容 -->
     <main class="content">
-        <div class="main-title">
-            <h1 class="name-en">Liu Jinjing</h1>
-            <div class="divider"></div>
+        <!-- 主标题：Liu jinjing -->
+        <div class="name-section">
+            <h1 class="name">Liu jinjing</h1>
         </div>
 
-        <p class="subtitle">Today</p>
+        <!-- 分隔线 -->
+        <div class="divider"></div>
 
+        <!-- Today -->
+        <p class="today">Today</p>
+
+        <!-- Peak-End Rule -->
         <div class="peak-end-section">
             <span class="peak-end-label">Peak-End Rule</span>
         </div>
 
+        <!-- 经典台词 -->
         <blockquote class="quote">
             <span class="quote-line">In case I don't see you.</span>
             <span class="quote-line">Good morning, good afternoon</span>
             <span class="quote-line">and good night.</span>
         </blockquote>
-    </main>
 
-    <!-- 底部装饰线 -->
-    <div class="bottom-accent"></div>
+        <!-- 装饰性元素 -->
+        <div class="decorative-circle"></div>
+    </main>
 
     <script src="script.js"></script>
 </body>
