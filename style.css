@@ -204,11 +204,11 @@ body {
 }
 
 /* 浅色主题下的切换器样式调整 */
-[data-theme^="mint"],
-[data-theme^="sakura"],
-[data-theme^="cream"],
-[data-theme^="lavender"],
-[data-theme^="misty"],
+[data-theme^="mint"] .theme-switcher,
+[data-theme^="sakura"] .theme-switcher,
+[data-theme^="cream"] .theme-switcher,
+[data-theme^="lavender"] .theme-switcher,
+[data-theme^="misty"] .theme-switcher,
 [data-theme^="glacial"] .theme-switcher {
     background: rgba(0, 0, 0, 0.06);
     border: 1px solid rgba(0, 0, 0, 0.1);
