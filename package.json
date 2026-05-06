@@ -1,16 +1,27 @@
 {
-  "name": "personal-website",
+  "name": "liu-jinjing-homepage",
   "version": "1.0.0",
-  "description": "",
-  "main": "script.js",
+  "description": "Liu Jinjing's personal portfolio website with theme management and visitor tracking system",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "portfolio",
+    "personal-website",
+    "theme-switcher",
+    "visitor-tracking"
+  ],
+  "author": "Liu Jinjing",
+  "license": "MIT",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6",
+    "cors": "^2.8.5"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
